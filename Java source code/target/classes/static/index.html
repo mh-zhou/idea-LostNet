@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>以图搜图</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./111.css">
+</head>
+<!--<body style="background-imagemargin-left: 50px" >-->
+<body style="background:url(./layui/images/bj.jpg); margin-left: 50px">
+<div class="layui-upload-list">
+    <h1 align="center" id="title">创“心”寻物</h1>
+    <div class="img"></div>
+    <img class="layui-upload-img" id="img" style="margin-left: 20px;background: #807c7c" height="200px" width="400px">
+</div>
+<button type="button" style="margin-left: 20px" class="layui-btn" id="upload">
+    <i class="layui-icon">&#xe67c;</i>上传图片
+</button>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+    <legend>设置匹配度</legend>
+</fieldset>
+
+<div id="slide" class="demo-slider" style="margin-bottom: 20px"></div>
+<div id="tips" style="position:relative; left: 10px; top: -20px;margin-bottom: 20px">当前匹配度：<span id="score_num">70</span>%</div>
+
+<!--<div>匹配结果</div>-->
+<h3 style="margin-bottom: 20px">匹配结果是否有您寻找丢失的物品</h3>
+<div id="imglist">
+</div>
+<div id="typeResult" style="margin-top: 50px">
+    <button type="button" id="name" style="margin-left: 10px" class="layui-btn" id="ok" onclick="alterMessage()">
+        是
+    </button>
+    <button type="button" style="margin-left: 200px" class="layui-btn" id="query">
+        <a href="http://localhost:8081/index.html">否</a>
+    </button>
+    <div class="content">
+    <div class="content-left">
+    </div>
+</div>
+    <div id="text" style="display:none; margin-top: 50px">
+        <h1 align="center">感谢您的使用</h1>
+    </div>
+</div>
+
+<script src="layui/layui.js"></script>
+<script>
+    $(function(){
+        $("#name").click(function(){//按钮绑定点击事件
+            $("#text").show();//文本框显示出来  注：之前设置display:none的样式
+        });
+    });
+    $(document).mouseup(function(e) {
+        var  pop = $('name');
+        if(!pop.is(e.target) && pop.has(e.target).length === 0) {
+            // 可以在这里关闭弹窗
+            $("#text").hide()
+        }
+    });
+    // function alterMessage(){
+    //     alert("感谢你的使用")
+    // }
+    layui.use(['upload', 'slider'], function () {
+        var $ = layui.$
+            , slider = layui.slider;
+        //设置提示文本
+        slider.render({
+            elem: '#slide',
+            min: 0,
+            max: 100,
+            value: 70
+            , change: function (value) {
+                $('#score_num').html(value);
+            }
+        });
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#upload' //绑定元素
+            , url: '/admin/image/imageUpload' //上传接口
+            , before: function (obj) {
+                obj.preview(function (index, file, result) {
+                    $("#img").attr("src", result);
+                });
+                layer.load();
+            }
+            , done: function (res) {
+                //上传完毕回调
+                var array = res.result_msg;
+                console.log("array",array);
+                // var imgList = new Array();
+                var imgList = res.result_msg;
+                console.log(imgList);
+                var list = $("#imglist");
+                list.children().remove();
+                for (var i = 0; i < imgList.length; i++) {
+                    // $("#img1").attr("src", imgList[i]);
+                    var img = imgList[i];
+                    var body = "<img class=\"layui-upload-img\" id=\"img1\" src=\"" + img + "\" alt=\"\" width=\"400px\" height=\"200px\" style='margin-left: 20px'>";
+                    list.append(body);
+                }
+                layer.closeAll('loading');
+            }
+            , error: function () {
+                //请求异常回调
+                layer.closeAll('loading');
+            }
+        });
+    });
+</script>
+</body>
+</html>

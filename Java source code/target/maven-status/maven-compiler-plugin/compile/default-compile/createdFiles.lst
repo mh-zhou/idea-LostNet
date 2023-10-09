@@ -1,0 +1,15 @@
+com\zxj\image\test\ImageHelper.class
+com\zxj\image\bean\Image.class
+com\zxj\image\service\ImageService.class
+com\zxj\image\util\ConstantPropertiesUtil.class
+com\zxj\image\config\UploadFileConfig.class
+com\zxj\image\controller\ImageController.class
+com\zxj\image\controller\imageUpload.class
+com\zxj\image\mapper\ImageMapper.class
+com\zxj\image\test\HuToolTest.class
+com\zxj\image\service\impl\ImageServiceImpl.class
+com\zxj\image\util\UUIDUtils.class
+com\zxj\image\test\SimilarImageSearch.class
+com\zxj\image\ImageRecognitionApplication.class
+com\zxj\image\util\FileUtils.class
+com\zxj\image\config\Swagger2Config.class

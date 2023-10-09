@@ -1,0 +1,1 @@
+There are all the codes that runs mainly in the python environment. It is a deep learning code based on the pytorch environment, where flaskTest.py is used to integrate different systems or applications together. It allows two different applications, Java and Python, to work together in the same environment to share data or perform specific tasks.

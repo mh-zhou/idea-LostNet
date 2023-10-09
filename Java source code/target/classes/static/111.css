@@ -1,0 +1,111 @@
+
+body{
+    background: url(./layui/images/bj.jpg) no-repeat;
+}
+
+#title{
+
+        text-align: center;
+        color: #ffffff;
+        font-size: 3rem;
+        text-shadow: 0 0 10px #00d8ff;
+}
+
+.img{
+    display: block;
+    background: url(./layui/images/head.gif) no-repeat center center;
+    background-size: 50%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:-350px;
+    z-index: -1;
+
+}
+.header {
+    width: 100%;
+    height: 1.5rem;
+    /* background: red; */
+}
+*, body {
+    padding: 0px;
+    margin: 0px;
+    color: #ffffff;
+    /* font-family: "Ã¥Â¾Â®Ã¨Â½Â¯Ã©â€ºâ€¦Ã©Â»â€˜"; */
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.content{
+    position: relative;
+    width: 500px;
+    height: 400px;
+}
+.content-left {
+    -webkit-transform: rotate(360deg);
+    animation: rotation 15s linear infinite;
+    -moz-animation: rotation 15s linear infinite;
+    -webkit-animation: rotation 15s linear infinite;
+    -o-animation: rotation 15s linear infinite;
+ }
+ .content-left {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 200%;
+    top:-20%;
+    /* border: 1px solid red; */
+    background: url(./layui/images/d.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 0.4rem 0;
+    box-sizing: border-box;
+    margin-right: 2%;
+    float: left;
+}
+
+*, body {
+    padding: 0px;
+    margin: 0px;
+    color:	LightSeaGreen ;
+    /* font-family: "Ã¥Â¾Â®Ã¨Â½Â¯Ã©â€ºâ€¦Ã©Â»â€˜"; */
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+body {
+    background: url(../images/bj.jpg) no-repeat;
+    background-size: cover;
+    font-size: .16rem;
+    color: #ffffff;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+style attribute {
+    font-size: 29.7083px;
+}
+@keyframes rotation{
+0% {
+    -webkit-transform: rotate(0deg);
+}
+100% {
+    -webkit-transform: rotate(360deg);
+}
+}
+#text{
+    position: absolute;
+    bottom: 50px;
+    font-size: 18px;
+    left: 50%;
+    transform: translate(-50%);
+    text-shadow: 0 0 10px #00d8ff;
+}
