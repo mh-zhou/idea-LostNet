@@ -1,0 +1,1 @@
+This file includes the weight of the model, as well as images displaying accuracy and loss values.
